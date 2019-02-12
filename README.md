@@ -4,12 +4,19 @@ In order to teach myself how to build a RESTful API, I created this project. The
   The layout of the RESTful API was broken down into routes for good practice. In this particular API, there was only one endpoint so this is fairly straight forward (the request handling can be found in 'backend/Api/Routes/providers.js'). The API supports 'GET', 'POST', 'PATCH', and 'DELETE' request types, however the front end only demonstrates requests of type 'GET'. 
   
  REQUESTS:
- 
+    
   ```
-      'GET':
+       Endpoints:
+       Development baseURL => http://localhost:4000
+       GET, POST              /providers
+       GET, PATCH, DELETE     /providers/id
+
+  ```
+       
+  ```
+      'GET'   /providers
         description: Returns list of food providers that specialize in the foodType provided and are within 100 mi.
         Params => lng, lat, foodType
-        Endpoint => http://localhost:4000/providers/
         Example Request => http://localhost:4000/providers/?lng=80&lat=20&foodType='Pizza'
         Response => {
                      "count": 1,
@@ -28,6 +35,28 @@ In order to teach myself how to build a RESTful API, I created this project. The
                        ]
                      }
                       
+  ```
+  
+  ```
+        'GET'   /providers/id
+        description: returns details of the food provider that is associated with the provided id.
+        Example Request => http://localhost:4000/providers/5c528ece8bc73c5f5590e9f2
+        Response => {
+                        "location": {
+                            "type": "Point",
+                            "coordinates": [
+                                -81.1,
+                                24.95
+                            ]
+                        },
+                        "orders": 0,
+                        "open": true,
+                        "_id": "5c528ece8bc73c5f5590e9f2",
+                        "name": "Mama Lucia",
+                        "specialty": "Pasta",
+                        "__v": 0
+                    }
+                    
   ```
   
   ```
