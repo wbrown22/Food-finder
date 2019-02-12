@@ -7,6 +7,27 @@ In order to teach myself how to build a RESTful API, I created this project. The
  
   ```
       'GET':
+        description: Returns list of food providers that specialize in the foodType provided and are within 100 mi.
+        Params => lng, lat, foodType
+        Endpoint => http://localhost:4000/providers/
+        Example Request => http://localhost:4000/providers/?lng=80&lat=20&foodType='Pizza'
+        Response => {
+                     "count": 1,
+                     "providers": [
+                          {
+                              "name": "Papa John's",
+                              "specialty": "Pizza",
+                              "orders": 0,
+                              "distance": 62.9451507882235,
+                              "request": {
+                                  "type": "GET",
+                                  "description": "Get delivery provider details",
+                                  "url": "http://localhost:3000/providers/5c528647e608d55e9f43e2a3"
+                              }
+                          }
+                       ]
+                     }
+                      
   ```
   
   ```
