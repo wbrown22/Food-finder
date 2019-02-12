@@ -32,7 +32,7 @@ router.get('/', (req, res, next) => {
             request: {
               type: 'GET',
               description: 'Get delivery provider details',
-              url: "http://localhost:3000/providers/" + doc._id
+              url: "http://localhost:4000/providers/" + doc._id
               }
             }
           })
@@ -83,7 +83,7 @@ router.post('/', (req, res, next) => {
         request: {
           type: 'GET',
           desciption: 'get delivery provider details',
-          url: "http://localhost:3000/providers/" + result._id
+          url: "http://localhost:4000/providers/" + result._id
         }
       });
     })
@@ -146,7 +146,7 @@ router.patch('/:id', (req, res, next) => {
         request: {
           type: 'GET',
           description: 'Get delivery provider details',
-          url: "http://localhost:3000/providers/" + id
+          url: "http://localhost:4000/providers/" + id
         }
       });
     })
@@ -171,8 +171,8 @@ router.delete('/:id', (req, res, next) => {
         request: {
           type: 'POST',
           description: 'Create a new delivery provider',
-          url: "http://localhost:3000/providers/",
-          body: '{ name: \'String\', specialty: \'String\' }'
+          url: "http://localhost:4000/providers/",
+          body: '{ name: \'String\', specialty: \'String\', location: { type: \"Point\", coordinates: [\'Float\', \'Float\']} }'
         }
       });
     })

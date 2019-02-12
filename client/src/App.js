@@ -13,6 +13,7 @@ class App extends Component {
     }
   }
 
+//handles API 'GET' request
 searchFood = async () => {
 
     //start the loading spinner
@@ -45,7 +46,10 @@ searchFood = async () => {
 
   }
 
+//Handles conditional rendering and formatting for the response data from API call
   renderProviders = () => {
+
+    // While the API call is in progress. Renders activity indicator
     if (this.state.loading) {
       return(
         <div className="loadContainer">
@@ -57,6 +61,8 @@ searchFood = async () => {
         </div>
       );
     }
+
+    //If an error is thrown on the API call due to invalid coordinates
     else if (this.state.searched && this.state.json  === undefined) {
         return (
           <div className="providerContainer">
@@ -64,6 +70,8 @@ searchFood = async () => {
           </div>
         );
       }
+
+    //if the API call returns no results for our query
     else if (this.state.searched && this.state.json.length === 0) {
         return (
           <div className="providerContainer">
@@ -71,7 +79,11 @@ searchFood = async () => {
           </div>
         );
       }
+
+    //if the API call returns one or more results for our query
     else {
+
+      //format the comonents with data
       const providers = this.state.json.map((provider, index) => {
         return (
           <li key={index}>
@@ -84,6 +96,8 @@ searchFood = async () => {
           </li>
         );
       });
+
+      //return formatted components
       return (
         <div className="providerContainer">
           {providers}
@@ -103,18 +117,22 @@ searchFood = async () => {
 
           {/* Search input element */}
           <div id="searchInput">
+
             <div className="inputContainer">
               <text>Longitude: </text>
               <input className="input" type="text" ref="lng" required></input>
             </div>
+
             <div className="inputContainer">
               <text>Latitude: </text>
               <input className="input" type="text" ref="lat" required></input>
             </div>
+
             <div className="inputContainer">
               <text>Food: </text>
               <input className="input" type="text" ref="food" required></input>
             </div>
+
             <div className="buttonContainer">
               <button id="submitButton" type="button" onClick={this.searchFood}>FIND FOOD NEAR ME!</button>
             </div>
