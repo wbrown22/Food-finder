@@ -5,9 +5,10 @@ In order to teach myself how to build a RESTful API, I created this project. The
   
  REQUESTS:
  
-      <div>
+   <<<
       'GET':
-      </div>
+   <<<
+ 
       
       
       
