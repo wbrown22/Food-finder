@@ -5,24 +5,21 @@ In order to teach myself how to build a RESTful API, I created this project. The
   
  REQUESTS:
  
-   <<<
+  ```
       'GET':
-   <<<
- 
-      
-      
-      
+  ```
+  
+  ```
       'POST':
-      
-      
-      
+  ```
+
+  ```
       'PATCH':
-      
-      
-      
-      'DELETE:
-      
-      
+  ```
+  
+  ```
+       'DELETE':
+  ```
 
 Info
 ---
