@@ -141,5 +141,7 @@ In order to teach myself how to build a RESTful API, I created this project. The
        
   ```
 
-Demo
+To Do
 ---
+ * Add gifs of the front end to the README
+ * Migrate state management to Redux
