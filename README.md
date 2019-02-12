@@ -3,7 +3,16 @@ In order to teach myself how to build a RESTful API, I created this project. The
 
   The layout of the RESTful API was broken down into routes for good practice. In this particular API, there was only one endpoint so this is fairly straight forward (the request handling can be found in 'backend/Api/Routes/providers.js'). The API supports 'GET', 'POST', 'PATCH', and 'DELETE' request types, however the front end only demonstrates requests of type 'GET'. 
   
- REQUESTS:
+ Info
+---
+* **Platform**: Web browser
+* **Back end**: Nodejs, Express, MongoDB
+* **Front end**: Reactjs
+* **Code Style**: Standard
+* **Unit Test**: None
+
+ Requests
+---
     
   ```
        Endpoints:
@@ -94,7 +103,25 @@ In order to teach myself how to build a RESTful API, I created this project. The
   ```
 
   ```
-       'PATCH':  
+       'PATCH'   /providers/id
+       Description: Updates the name, specialty, number of orders, or any combination of the three for the food provider
+                    associated with the provided Id. **THE EXAMPLE UPDATES ALL THREE FIELDS**
+       Params => id
+       Example Request => http://localhost:4000/providers/5c623039d764b8a25cf0b6a5
+       Body Format => [
+                        {	"propName": "name", 	   "value": "Taco Bell"	},
+                        {	"propName": "specialty",   "value": "Tacos"		},
+                        {	"propName":	"orders",	   "value": "1"			}
+                      ]
+       
+       Response => {
+                        "message": "Provider details were updated!",
+                        "request": {
+                            "type": "GET",
+                            "description": "Get delivery provider details",
+                            "url": "http://localhost:4000/providers/5c623039d764b8a25cf0b6a5"
+                        }
+                    }
   ```
   
   ```
@@ -113,14 +140,6 @@ In order to teach myself how to build a RESTful API, I created this project. The
                    }
        
   ```
-
-Info
----
-* **Platform**: Web browser
-* **Back end**: Nodejs, Express, MongoDB
-* **Front end**: Reactjs
-* **Code Style**: Standard
-* **Unit Test**: None
 
 Demo
 ---
